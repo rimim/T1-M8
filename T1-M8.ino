@@ -484,13 +484,13 @@ void loop() {
   // -------------------------------------------------------------------------
   // Now we directly call .setSpeedRefPercentage() with values in [-1.0, 1.0].
   // PDLOG_INFO("motorLeft: %0.2f motorRight: %0.2f\n", motorLeft, motorRight);
-  // if ((STATUS & STATUS_ALLOW_BALANCE) == STATUS_ALLOW_BALANCE) {
+  if ((STATUS & STATUS_ALLOW_BALANCE) == STATUS_ALLOW_BALANCE) {
     leftMotor.setSpeedRefPercentage(motorLeft);
     rightMotor.setSpeedRefPercentage(motorRight);
-  // } else {
-  //   leftMotor.setSpeedRefPercentage(0);
-  //   rightMotor.setSpeedRefPercentage(0);
-  // }
+  } else {
+    leftMotor.setSpeedRefPercentage(0);
+    rightMotor.setSpeedRefPercentage(0);
+  }
 
   // Adjust the neck pitch
   if ((STATUS & STATUS_NECK_RESPONDING) != 0) {
